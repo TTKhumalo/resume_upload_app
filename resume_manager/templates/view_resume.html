@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View RESUME</title>
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4">Your RESUME</h1>
+        {% if resume and resume.content %}
+        <table class="table-auto border-collapse border border-gray-300 w-full">
+            <thead>
+                <tr class="bg-gray-200">
+                    {% for key in resume.content.0.keys %} {# Assuming the keys are the same for each row #}
+                    <th class="py-2 px-4">{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in resume.content %}
+                <tr class="border-t border-gray-300">
+                    {% for value in row.values %}
+                    <td class="py-2 px-4">{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="text-lg text-gray-800">No RESUME uploaded yet.</p>
+        {% endif %}
+        <a href="{% url 'upload_resume' %}" class="mt-4 block text-blue-500">Upload Another RESUME</a>
+    </div>
+</body>
+
+</html>

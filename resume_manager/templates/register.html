@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-4">Register</h1>
+        
+        {% if user_exists %}
+        <div class="text-red-500 text-sm mb-4">
+            User already exists. Please choose a different username.
+        </div>
+        {% endif %}
+        
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="flex items-center space-x-4">
+                <label for="{{ field.id_for_label }}" class="text-sm font-medium text-gray-700">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% if field.errors %}
+            <div class="text-red-500 text-sm mt-1">
+                {% for error in field.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="flex items-center space-x-4">
+                <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150 ease-in-out">Register</button>
+            </div>
+        </form>
+        
+        <div class="mt-4 flex justify-between">
+            <a href="{% url 'home' %}" class="text-blue-500 hover:text-blue-600">Back to Home</a>
+            <a href="{% url 'login' %}" class="text-blue-500 hover:text-blue-600">Already have an account? Login</a>
+        </div>
+    </div>
+</body>
+</html>

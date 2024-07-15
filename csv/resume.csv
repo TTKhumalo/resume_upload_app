@@ -1,0 +1,4 @@
+first_name,last_name,email,phone_number,summary,experience,education
+John,Doe,johndoe@example.com,123-456-7890,"Experienced software developer with expertise in Python and Django.","Software Developer, ABC Inc., 2020-present","Bachelor of Computer Science, XYZ University, 2016-2020"
+Jane,Smith,janesmith@example.com,987-654-3210,"Skilled project manager with PMP certification.","Project Manager, XYZ Corp., 2018-present","Master of Business Administration, ABC University, 2014-2016"
+David,Johnson,davidjohnson@example.com,555-123-4567,"Seasoned UX/UI designer with a focus on user-centered design.","UX/UI Designer, DEF Ltd., 2017-present","Bachelor of Fine Arts in Graphic Design, QRS College, 2012-2016"
