@@ -27,7 +27,7 @@ Ensure you have the following installed on your system:
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/resume_upload_app.git
+   git clone https://github.com/TTKhumalo/resume_upload_app.git
    cd resume_upload_app
    ```
 
